@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/flashcard/build/index.html/static/js/main.1c7653ef.js",
+    "index.html": "/flashcard/build/index.html/index.html",
+    "main.1c7653ef.js.map": "/flashcard/build/index.html/static/js/main.1c7653ef.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.1c7653ef.js"
+  ]
+}

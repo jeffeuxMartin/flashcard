@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/flashcard/static/js/main.1c7653ef.js",
-    "index.html": "/flashcard/index.html",
-    "main.1c7653ef.js.map": "/flashcard/static/js/main.1c7653ef.js.map"
+    "main.js": "/flashcard/build/static/js/main.1c7653ef.js",
+    "index.html": "/flashcard/build/index.html",
+    "main.1c7653ef.js.map": "/flashcard/build/static/js/main.1c7653ef.js.map"
   },
   "entrypoints": [
     "static/js/main.1c7653ef.js"

@@ -4,11 +4,11 @@
 
 ![](https://i.imgur.com/HdFToIX.png)
 
-## [Results]
+## [Results](https://jeffeuxmartin.github.io/flashcard/)
 
 https://jeffeuxmartin.github.io/flashcard/
 
-// Thu Nov 03 2022 03:41:29 GMT+0800 (台北標準時間)
-// Thu Nov 03 2022 06:45
-// 2022-11-02T23:15:09.227Z
-// 2022-11-02T 7:40:09.227Z
+
+![](https://i.imgur.com/4SJjw1h.png)
+
+Worktime: AM 3:41 ~ 6:45 + 7:15 ~ 7:56, Nov 3rd, 2022

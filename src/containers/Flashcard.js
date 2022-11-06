@@ -41,23 +41,25 @@ class Flashcard extends Component {
       example_states: {},
     };
   }
+
   handleStarClick(event) {
     let clicked_id = event.currentTarget.id;
     let star_states = this.state.star_states;
     star_states[clicked_id] = !star_states[clicked_id];
     this.setState({
-      star_states: star_states,  // TODO: better way? of destructing...
+      star_states: star_states, // TODO: better way? of destructing...
     });
   }
+
   handleExampleClick(event) {
     let v = event.currentTarget.parentNode;
     let example_states = this.state.example_states;
     example_states[v.id] = !example_states[v.id];
     this.setState({
-      example_states: example_states,  // TODO: better way? of destructing...
+      example_states: example_states, // TODO: better way? of destructing...
     });
   }
-  
+
   verbose() {
     console.log(JSON.stringify(this.state, undefined, 4));
   }
@@ -68,7 +70,7 @@ class Flashcard extends Component {
         <Header title={"My Flash Card"} />
         <Content
           vocabularies={vocabularies}
-          handleStarClick={this.handleStarClick.bind(this)}  
+          handleStarClick={this.handleStarClick.bind(this)}
           // { /* TODO: no better solution? */ }
           handleExampleClick={this.handleExampleClick.bind(this)}
           vocabStates={this.state}

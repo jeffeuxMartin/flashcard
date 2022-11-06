@@ -1,30 +1,12 @@
 import PropTypes from "prop-types";
 import Button from "./Button";
+import FaStar from "./FaStar";
 import fa_star from "../images/fa-star.png";
 import fb_star from "../images/fb-star.png";
 
-function FaStar({ icon, className, id, onClick }) {
-  return (
-    <img
-      className={className}
-      src={icon}
-      alt=""
-      srcSet=""
-      onClick={onClick}
-      id={id}
-    />
-  );
-}
-
-FaStar.propTypes = {
-  icon: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-};
-
 export default function Card({
   id,
+  idx,
   handleStarClick,
   word,
   part_of_speech,
@@ -33,14 +15,22 @@ export default function Card({
   vocabStates,
   children,
 }) {
+  console.assert(id !== undefined); // SO sad...
+  console.assert(idx !== undefined); // SO sad...
   return (
     <>
       <div className="vocabulary">
         <Button className={["icon-button", "button"].join(" ")}>
           <FaStar
-            icon={vocabStates["star_states"][`star-${id}`] ? fb_star : fa_star}
+            icon={
+              // vocabStates["star_states"][`star-${id}`] ? fb_star : fa_star
+              vocabStates["star_states"][`star-${word}`] ? fb_star : fa_star
+            }
             className="fa-star"
-            id={`star-${id}`}
+            id={
+              // `star-${id}`
+              `star-${word}`
+            }
             onClick={handleStarClick}
           />
         </Button>
@@ -63,7 +53,8 @@ export default function Card({
 }
 
 Card.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
+  idx: PropTypes.idx,
   word: PropTypes.string.isRequired,
   part_of_speech: PropTypes.string.isRequired,
   definition: PropTypes.string.isRequired,

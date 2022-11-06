@@ -1,9 +1,34 @@
 import PropTypes from "prop-types";
+import Button from "./Button";
+import FaStar from "./FaStar";
+import fa_star from "../images/fa-star.png";
+import fb_star from "../images/fb-star.png";
 
-export default function Header({ title }) {
-  return <header className="title">{title}</header>;
+export default function Header({ title, onClick, favOn = false }) {
+  return (
+    <header className="title">
+      {title}
+      <Button
+        className={[
+          "button",
+          favOn ? "title-icon-button" : "title-icon-button-disabled",
+        ].join(" ")}
+        text={" 查看" + (favOn ? "全部單字" : "我的最愛") + "\u00A0"}
+        onClick={onClick}
+      >
+        <FaStar
+          icon={favOn ? fb_star : fa_star}
+          className="fa-star"
+          id={"show-fav"}
+          onClick={onClick}
+        />
+      </Button>
+    </header>
+  );
 }
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
+  favOn: PropTypes.bool,
+  onClick: PropTypes.func,
 };

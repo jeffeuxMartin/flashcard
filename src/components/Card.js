@@ -1,13 +1,19 @@
-import Button from "./Button";
 import PropTypes from "prop-types";
+import Button from "./Button";
 import fa_star from "../images/fa-star.png";
 import fb_star from "../images/fb-star.png";
 
-function FaStar(props) {
-  let { icon, className, id, onClick } = props;
-  return <img className={className} src={
-    icon
-  } alt="" srcSet="" onClick={onClick} id={id} />;
+function FaStar({ icon, className, id, onClick }) {
+  return (
+    <img
+      className={className}
+      src={icon}
+      alt=""
+      srcSet=""
+      onClick={onClick}
+      id={id}
+    />
+  );
 }
 
 FaStar.propTypes = {
@@ -24,22 +30,15 @@ export default function Card({
   part_of_speech,
   definition,
   handleExampleClick,
-  children,
   vocabStates,
+  children,
 }) {
-  // example;
-  // console.log(children);
   return (
     <>
       <div className="vocabulary">
-        <Button className={[
-          "icon-button",
-          "button"
-        ].join(' ')}>
+        <Button className={["icon-button", "button"].join(" ")}>
           <FaStar
-            icon={
-              vocabStates['star_states'][`star-${id}`] ? fb_star : fa_star
-            }
+            icon={vocabStates["star_states"][`star-${id}`] ? fb_star : fa_star}
             className="fa-star"
             id={`star-${id}`}
             onClick={handleStarClick}
@@ -50,22 +49,15 @@ export default function Card({
       </div>
       <h3 className="definition">{definition}</h3>
       <Button
-        className={[
-          "example-button",
-          "button",
-        ].join(' ')}
+        className={["example-button", "button"].join(" ")}
         text={"Example"}
         onClick={handleExampleClick}
       />
       {
-        children
-        // https://stackoverflow.com/questions/36651583/dynamically-add-child-components-in-react
         // TODO: TOAsk? Magic???
-        // example ?? <></>
-        // id
-        // [children]
+        // https://stackoverflow.com/questions/36651583/dynamically-add-child-components-in-react
+        children
       }
-      {/* <h5 className="example_sent">{example}</h5> */}
     </>
   );
 }
@@ -77,7 +69,6 @@ Card.propTypes = {
   definition: PropTypes.string.isRequired,
   handleStarClick: PropTypes.func,
   handleExampleClick: PropTypes.func,
-  // example: PropTypes.node,
-  children: PropTypes.node,
   vocabStates: PropTypes.object,
+  children: PropTypes.node,
 };

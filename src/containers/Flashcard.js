@@ -1,10 +1,7 @@
 import { Component } from "react";
+import PropTypes from "prop-types";
 import Header from "../components/Header";
 import Content from "../components/Content";
-// import fa_star from "../images/fa-star.png";
-// import fb_star from "../images/fb-star.png";
-
-import PropTypes from "prop-types";
 
 const vocabularies = [
   {
@@ -45,41 +42,25 @@ class Flashcard extends Component {
     };
   }
   handleStarClick(event) {
-    let clicked_id = event.currentTarget.parentNode.firstElementChild.id;
-    // TODO: fix parent child! stupid
-    // TODO: ask momo!
-    // console.log(`${clicked_id} clicked!`);
+    let clicked_id = event.currentTarget.id;
     let star_states = this.state.star_states;
     star_states[clicked_id] = !star_states[clicked_id];
     this.setState({
       star_states: star_states,  // TODO: better way? of destructing...
     });
-    // this.rerender();
-    // if (event.currentTarget.src === fa_star) {
-    //   event.currentTarget.src = fb_star;
-    // }
-    // else {
-    //   event.currentTarget.src = fa_star
-    // }
   }
   handleExampleClick(event) {
     let v = event.currentTarget.parentNode;
-    // console.log(event.currentTarget);
-    // console.log(v.id);
     let example_states = this.state.example_states;
     example_states[v.id] = !example_states[v.id];
     this.setState({
       example_states: example_states,  // TODO: better way? of destructing...
     });
-    // this.rerender();
   }
   
-  rerender() {
+  verbose() {
     console.log(JSON.stringify(this.state, undefined, 4));
-    // console.log(vocabStates['star_states'][id])
-    
   }
-  
 
   render() {
     return (

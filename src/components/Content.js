@@ -1,17 +1,17 @@
-import Card from './Card'
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import Card from "./Card";
 
-export default function Content({ 
+export default function Content({
   vocabularies,
   handleStarClick,
   handleExampleClick,
   vocabStates,
- }) {
+}) {
   return (
     <div className="content">
       {vocabularies.map((v, i) => (
-        <div className="card" key={v.word} id={i}>  {  // 這個 key 很重要！！  // TODO: ID dirty!
-        }
+        <div className="card" key={v.word} id={i}>
+          {/* 這個 key 很重要！！  // TODO: ID dirty! */}
           <Card
             word={v.word}
             part_of_speech={v.part_of_speech}
@@ -22,23 +22,11 @@ export default function Content({
             vocabStates={vocabStates}
           >
             <div className="example_sentence">
-              
-            {
-              // !
-              (vocabStates['example_states'][i])     ?
-            //   // TODO: Really OK???
-              
-              (
-                <div >
-              {v.example}
-                </div>
-              )
-              : 
-              null
-            // {/* bad TODO: fixme children! */}
-          }
+              {
+                // TODO: Really OK???  // {/* bad TODO: fixme children! */}
+                vocabStates["example_states"][i] ? <div>{v.example}</div> : null
+              }
             </div>
-            
           </Card>
         </div>
       ))}
@@ -47,11 +35,8 @@ export default function Content({
 }
 
 Content.propTypes = {
-    vocabularies: PropTypes.array.isRequired,
-    // word: PropTypes.string.isRequired,
-    // part_of_speech: PropTypes.string.isRequired,
-    // definition: PropTypes.string.isRequired,
-    handleStarClick: PropTypes.func,
-    handleExampleClick: PropTypes.func,
-    vocabStates: PropTypes.object,  // FIXME
+  vocabularies: PropTypes.array.isRequired,
+  handleStarClick: PropTypes.func,
+  handleExampleClick: PropTypes.func,
+  vocabStates: PropTypes.object, // FIXME
 };

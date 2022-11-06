@@ -1,73 +1,83 @@
-import React, { Component } from "react";
-import PropTypes from 'prop-types';
-import Header from "./Header";
-import Content from "./Content";
+import Button from "./Button";
+import PropTypes from "prop-types";
+import fa_star from "../images/fa-star.png";
+import fb_star from "../images/fb-star.png";
 
+function FaStar(props) {
+  let { icon, className, id, onClick } = props;
+  return <img className={className} src={
+    icon
+  } alt="" srcSet="" onClick={onClick} id={id} />;
+}
 
-class Card extends Component {
-  // region    --- drafts
-  // static get propTypes() {
-  //   return {
-  //     // word: { value: 'hi', errors: [] }
-  //     word: 'hi'
-  //   }
-  //   // word: "hi",
-  // }
-  
-  // static propTypes = {
-  // static defaultProps = {
-  // static get defaultProps() {
-  //   // defaultProps
-  //   return {
-  //       
-  //     word: "jeff",
-  //   }
-  // }
-  
-  // static get defaultProps() {
-  //   return {
-  //     word: "jeff",
-  //   }
-  // }
-  // endregion --- drafts
-  
-  render() {
-    const props = this.props;
-    return (
-      // <h1>Hello {props.word}!</h1>
-      <div className="cardpad">
-      <div className="card">
-        <Header 
-          word={props.word} 
-          definition={props.definition} 
-          part_of_speech={props.part_of_speech} 
-        />
-        <Content example={props.example}/>        
+FaStar.propTypes = {
+  icon: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+};
+
+export default function Card({
+  id,
+  handleStarClick,
+  word,
+  part_of_speech,
+  definition,
+  handleExampleClick,
+  children,
+  vocabStates,
+}) {
+  // example;
+  // console.log(children);
+  return (
+    <>
+      <div className="vocabulary">
+        <Button className={[
+          "icon-button",
+          "button"
+        ].join(' ')}>
+          <FaStar
+            icon={
+              vocabStates['star_states'][`star-${id}`] ? fb_star : fa_star
+            }
+            className="fa-star"
+            id={`star-${id}`}
+            onClick={handleStarClick}
+          />
+        </Button>
+        <h2 className="word">{word}</h2>
+        <h4>{part_of_speech}</h4>
       </div>
-      </div>
-
-      
-    );
-  }
+      <h3 className="definition">{definition}</h3>
+      <Button
+        className={[
+          "example-button",
+          "button",
+        ].join(' ')}
+        text={"Example"}
+        onClick={handleExampleClick}
+      />
+      {
+        children
+        // https://stackoverflow.com/questions/36651583/dynamically-add-child-components-in-react
+        // TODO: TOAsk? Magic???
+        // example ?? <></>
+        // id
+        // [children]
+      }
+      {/* <h5 className="example_sent">{example}</h5> */}
+    </>
+  );
 }
 
 Card.propTypes = {
-  // TODO: default values?
+  id: PropTypes.number,
   word: PropTypes.string.isRequired,
   part_of_speech: PropTypes.string.isRequired,
   definition: PropTypes.string.isRequired,
-  example: PropTypes.string.isRequired,
+  handleStarClick: PropTypes.func,
+  handleExampleClick: PropTypes.func,
+  // example: PropTypes.node,
+  children: PropTypes.node,
+  vocabStates: PropTypes.object,
 };
-
-// region    --- drafts
-// Card.defaultProps = {
-//   // word: { value: '', errors: [] }
-//   word: "hi",
-// }
-
-// Card.defaultProps = {
-//   word: "jeff",
-// };
-// endregion --- drafts
-
-export default Card;

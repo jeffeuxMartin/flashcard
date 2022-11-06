@@ -1,5 +1,10 @@
-import React from "react";
-import Card from "../components/Card";
+import { Component } from "react";
+import Header from "../components/Header";
+import Content from "../components/Content";
+// import fa_star from "../images/fa-star.png";
+// import fb_star from "../images/fb-star.png";
+
+import PropTypes from "prop-types";
 
 const vocabularies = [
   {
@@ -30,42 +35,72 @@ const vocabularies = [
   },
 ];
 
-// Thu Nov 03 2022 03:41:29 GMT+0800 (台北標準時間)
-// Thu Nov 03 2022 06:45
-// 2022-11-02T23:15:09.227Z
-function Flashcard() {
-  return (
-    <>
-      <h1 className="title">My Flash Card</h1>
-      <div>{
-        vocabularies.map(
-          word_item => (
-            <Card 
-                key={word_item.word}
-                word={word_item.word}
-                part_of_speech={word_item.part_of_speech}
-                definition={word_item.definition}
-                example={word_item.example}
-            />
-          )
-        )
-      }
+class Flashcard extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      star_states: {},
+      example_states: {},
+    };
+  }
+  handleStarClick(event) {
+    let clicked_id = event.currentTarget.parentNode.firstElementChild.id;
+    // TODO: fix parent child! stupid
+    // TODO: ask momo!
+    // console.log(`${clicked_id} clicked!`);
+    let star_states = this.state.star_states;
+    star_states[clicked_id] = !star_states[clicked_id];
+    this.setState({
+      star_states: star_states,  // TODO: better way? of destructing...
+    });
+    // this.rerender();
+    // if (event.currentTarget.src === fa_star) {
+    //   event.currentTarget.src = fb_star;
+    // }
+    // else {
+    //   event.currentTarget.src = fa_star
+    // }
+  }
+  handleExampleClick(event) {
+    let v = event.currentTarget.parentNode;
+    // console.log(event.currentTarget);
+    // console.log(v.id);
+    let example_states = this.state.example_states;
+    example_states[v.id] = !example_states[v.id];
+    this.setState({
+      example_states: example_states,  // TODO: better way? of destructing...
+    });
+    // this.rerender();
+  }
+  
+  rerender() {
+    console.log(JSON.stringify(this.state, undefined, 4));
+    // console.log(vocabStates['star_states'][id])
+    
+  }
+  
+
+  render() {
+    return (
+      <div>
+        <Header title={"My Flash Card"} />
+        <Content
+          vocabularies={vocabularies}
+          handleStarClick={this.handleStarClick.bind(this)}  
+          // { /* TODO: no better solution? */ }
+          handleExampleClick={this.handleExampleClick.bind(this)}
+          vocabStates={this.state}
+        />
       </div>
-    </>
-  );
+    );
+  }
 }
-// for (let i of document.getElementsByClassName("example_wrapper")) {
-// i.onclick = () => alert(999)
-// // i.innerHTML = 'jaiowefj'
-// }
-
-// document.querySelectorAll(".button#example_button")[0].onclick = () => alert(1)
-// document.querySelectorAll(".button#example_button")[0].parentElement.querySelector('.example_wrapper').style.display = 'none'
-// 
-
 
 export default Flashcard;
 
-// region    --- draft 
-// {/* {vocabularies.map(i => (<Card key=i word={i.word}></Card>))} */}
-// endregion --- draft 
+Flashcard.propTypes = {
+  vocabularies: PropTypes.array,
+  handleStarClick: PropTypes.func,
+  handleExampleClick: PropTypes.func,
+};

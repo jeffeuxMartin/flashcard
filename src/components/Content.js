@@ -1,30 +1,57 @@
-import React from "react";
+import Card from './Card'
 import PropTypes from 'prop-types';
-import Button from "./Button";
 
-function jeffjeff () {
-    // console.log(document.querySelector('.example_wrapper'))
-    // console.log(document.querySelector('.example_wrapper'));
-    // console.log(1);
-    // console.log(b);
-    alert(1234)
-    
-  }
-
-function Content(props) {
-    // TODO: 長句換行
-    // console.log(aaa.onClick);
-    return (<div className="card_content">
-        <Button type="text" content="Example" onClick={jeffjeff} />
-        <div className="example_wrapper"><span className="example_line">{props.example}</span></div>
-    </div>);
+export default function Content({ 
+  vocabularies,
+  handleStarClick,
+  handleExampleClick,
+  vocabStates,
+ }) {
+  return (
+    <div className="content">
+      {vocabularies.map((v, i) => (
+        <div className="card" key={v.word} id={i}>  {  // 這個 key 很重要！！  // TODO: ID dirty!
+        }
+          <Card
+            word={v.word}
+            part_of_speech={v.part_of_speech}
+            definition={v.definition}
+            handleStarClick={handleStarClick}
+            handleExampleClick={handleExampleClick}
+            id={i}
+            vocabStates={vocabStates}
+          >
+            <div className="example_sentence">
+              
+            {
+              // !
+              (vocabStates['example_states'][i])     ?
+            //   // TODO: Really OK???
+              
+              (
+                <div >
+              {v.example}
+                </div>
+              )
+              : 
+              null
+            // {/* bad TODO: fixme children! */}
+          }
+            </div>
+            
+          </Card>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 Content.propTypes = {
-    // TODO: default values?
-    example: PropTypes.string.isRequired,
+    vocabularies: PropTypes.array.isRequired,
+    // word: PropTypes.string.isRequired,
+    // part_of_speech: PropTypes.string.isRequired,
+    // definition: PropTypes.string.isRequired,
+    handleStarClick: PropTypes.func,
+    handleExampleClick: PropTypes.func,
+    vocabStates: PropTypes.object,  // FIXME
 };
-
-// TODO: 不會動！
-
-export default Content;

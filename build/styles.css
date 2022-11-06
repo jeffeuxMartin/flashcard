@@ -1,109 +1,84 @@
-@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
-
-.part_of_speech {
-    color: blue;
-    font-weight: bold;
+.title {
+  padding-top: 40px;
+  text-align: center;
+  font-size: xx-large;
+  font-family: cursive;
+  color: darkslateblue;
+  text-shadow: 2px 2px 4px #cbb4b4;
 }
 
-.button {
-    color: white;
-    display: inline-block;
-}
-
-.word {
-    font-weight: bold;
-    font-size: x-large;
-}
-
-.wordline {
-    padding-bottom: 1em;
-    
-}
-
-.definition {
-    font-weight: bold;
-    padding-left: 1ex;
-    padding-bottom: 1ex;
+.content {
+  position: relative;
+  left: 25%;
+  width: 50%;
 }
 
 .card {
-    background-color: white;
-    border: 3px solid black;
-    margin: 4px;
+  padding: 10px;
+  margin: 10px;
+  border: 3mm ridge rgb(50 98 220 / 60%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.cardpad {
-    background-color: rgb(117, 150, 228);
-    border: 3px solid rgb(183, 194, 2128);
-    margin: 2% 5% 2% 5%;
-    box-shadow: 0.5ex 0.6ex gray;
-    box-shadow: 2px 6px 6px 1px rgba(0, 0, 0, 0.5);
-
+.vocabulary {
+  display: flex;
+  align-items: center;
 }
 
-.card_header { 
-    padding-top: 1em;
-    padding-bottom: 0.3em;
-    padding-left: 1ex;
-    padding-right: 1ex;
-    
+.word {
+  padding-right: 10px;
+}
+.definition {
+  margin-top: 0;
 }
 
-.card_content { 
-    padding-top: 1.8ex;
-    padding-bottom: 3ex;
-    padding-left: 1ex;
-    padding-right: 1ex;
-    
+.example-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10p;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: cornflowerblue;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 3px #999;
 }
 
-/* .card_content, .button, .example_line {
-    */ 
-/*     display: inline-block;
-*/ 
-/* }
-*/ 
-
-
-
-.example_line {
-    font-size: small;
-}
-.example_wrapper {
-    font-size: inherit;
-    display: none;
+.button:hover {
+  background-color: cornflowerblue;
 }
 
-.title {
-    text-align: center;
-    text-shadow: 0.1em 0.1em rgb(214, 203, 201);
-    font-family: 'Dancing Script', sans-serif;
-    /* display: none; */
-    background-color: rgba(207, 207, 207, 0.2);
+.button:active {
+  background-color: cornflowerblue;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
 }
 
-#star, #starbad {
-    max-width: 2ex;
-    margin: 0.5ex 1ex 0.5ex 0.5ex;
-    
+.icon-button {
+  border: 0;
+  padding: 0;
+  background: white;
 }
 
-#star {
-    display: none;
+.fa-star {
+  color: darkgray;
+  padding: 5px;
+  /* Added by Jeff Chen */
+  width: 3ex;
 }
 
-#starbad {
-    display: inline;
+/* Added by Jeff Chen */
+h2.word {
+  padding-left: 0.2ex;
 }
 
-#example_button {
-    background-color: rgb(80, 139, 228);
-    border-radius: 14%;
-    padding: 1ex;
-    margin-left: 1ex;
-    margin-right: 1ex;
-
-    box-shadow: 0.2ex 0.3ex black;
-    
-
+.example_sentence {
+  display: inline-block;
+  margin: 0.6em auto auto 1em ;
+  font-weight: bold;
+  color:rgb(141, 0, 249)
 }

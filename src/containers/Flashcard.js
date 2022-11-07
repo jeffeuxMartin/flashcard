@@ -52,7 +52,7 @@ class Flashcard extends Component {
       star_states: star_states,
     });
     // this.verbose();
-  }
+  };
 
   handleExampleClick = (event) => {
     let v = event.currentTarget.parentNode;
@@ -64,15 +64,15 @@ class Flashcard extends Component {
       example_states: example_states,
     });
     // this.verbose();
-  }
+  };
 
   verbose = () => {
     console.log(JSON.stringify(this.state, undefined, 4));
-  }
+  };
 
   grabMyFav = () => {
     this.setState({ only_fav: !this.state.only_fav });
-  }
+  };
 
   render() {
     return (

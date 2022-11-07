@@ -32,6 +32,8 @@ const vocabularies = [
   },
 ];
 
+fetch()
+
 class Flashcard extends Component {
   constructor(props) {
     super(props);

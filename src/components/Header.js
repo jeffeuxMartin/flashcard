@@ -7,13 +7,18 @@ import fb_star from "../images/fb-star.png";
 export default function Header({ title, onClick, favOn = false }) {
   return (
     <header className="title">
-      {title}
+      <div>{title}</div>
       <Button
         className={[
           "button",
           favOn ? "title-icon-button" : "title-icon-button-disabled",
         ].join(" ")}
-        text={" 查看" + (favOn ? "全部單字" : "我的最愛") + "\u00A0"}
+        text={
+          // " 查看" + (favOn ? "全部單字" : "我的最愛") + "\u00A0"
+          " View " +
+          (favOn ? "\u00A0All \u00A0Words\u00A0" : "My Favorites") +
+          "\u00A0"
+        }
         onClick={onClick}
       >
         <FaStar

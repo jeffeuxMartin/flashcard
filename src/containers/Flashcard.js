@@ -3,36 +3,36 @@ import PropTypes from "prop-types";
 import Header from "../components/Header";
 import Content from "../components/Content";
 
-const vocabularies = [
-  {
-    word: "knotty",
-    part_of_speech: "Adjective",
-    definition:
-      "(of a problem or difficulty) complicated and difficult to solve.",
-    example: "It was a very knotty problem.",
-  },
-  {
-    word: "cantrip",
-    part_of_speech: "Noun",
-    definition: "a magic spell; trick by sorcery.",
-    example:
-      "And that old witch, Eliza—I little guessed she’d play this cantrip on me: But what a jest—Jerusalem, what a jest!",
-  },
-  {
-    word: "traverse",
-    part_of_speech: "Verb",
-    definition: "to pass or move over, along, or through.",
-    example: "Stanley traversed the continent from west to east.",
-  },
-  {
-    word: "peculiar",
-    part_of_speech: "Adjective",
-    definition: "different to what is normal or expected; strange.",
-    example: "He gave her some very peculiar looks.",
-  },
-];
+// const vocabularies = [
+//   {
+//     word: "knotty",
+//     part_of_speech: "Adjective",
+//     definition:
+//       "(of a problem or difficulty) complicated and difficult to solve.",
+//     example: "It was a very knotty problem.",
+//   },
+//   {
+//     word: "cantrip",
+//     part_of_speech: "Noun",
+//     definition: "a magic spell; trick by sorcery.",
+//     example:
+//       "And that old witch, Eliza—I little guessed she’d play this cantrip on me: But what a jest—Jerusalem, what a jest!",
+//   },
+//   {
+//     word: "traverse",
+//     part_of_speech: "Verb",
+//     definition: "to pass or move over, along, or through.",
+//     example: "Stanley traversed the continent from west to east.",
+//   },
+//   {
+//     word: "peculiar",
+//     part_of_speech: "Adjective",
+//     definition: "different to what is normal or expected; strange.",
+//     example: "He gave her some very peculiar looks.",
+//   },
+// ];
 
-fetch()
+fetch(`https://gist.githubusercontent.com/jeffeuxMartin/0f841fe9652f13ce8e79b26101555cd4/raw/05e96932e60324e2f0e12e01c5b9f2c247cf73d8/vocabularies.js`).then(resp => resp.body).then(stream => new Response(stream, { headers: { 'Content-Type': 'text/json' } }).text()).then(console.log)
 
 class Flashcard extends Component {
   constructor(props) {

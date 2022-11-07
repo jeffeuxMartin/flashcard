@@ -32,7 +32,7 @@ import Content from "../components/Content";
 //   },
 // ];
 
-fetch(`https://gist.githubusercontent.com/jeffeuxMartin/0f841fe9652f13ce8e79b26101555cd4/raw/ee5ea40ce0cdb1e54f1be5af44013d805756da45/vocabularies.json`).then(resp => resp.body).then(stream => new Response(stream, { headers: { 'Content-Type': 'text/json' } }).text()).then(console.log)
+PP = await fetch(`https://gist.githubusercontent.com/jeffeuxMartin/0f841fe9652f13ce8e79b26101555cd4/raw/ee5ea40ce0cdb1e54f1be5af44013d805756da45/vocabularies.json`).then(resp => resp.body).then(stream => new Response(stream, { headers: { 'Content-Type': 'text/json' } }).text()).then(JSON.parse)
 
 class Flashcard extends Component {
   constructor(props) {

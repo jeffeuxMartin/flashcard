@@ -101,6 +101,6 @@ export default Flashcard;
 
 Flashcard.propTypes = {
   vocabularies: PropTypes.array,
-  handleStarClick: PropTypes.func,
-  handleExampleClick: PropTypes.func,
+  // handleStarClick: PropTypes.func,
+  // handleExampleClick: PropTypes.func,
 };

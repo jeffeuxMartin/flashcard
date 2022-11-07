@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=JetBrains+Mono');
+@import url('https://fonts.googleapis.com/css?family=Handlee');
+
 .title {
   padding-top: 40px;
   text-align: center;
   font-size: xx-large;
-  font-family: cursive;
+  font-family: 'Handlee', cursive;
   color: darkslateblue;
   text-shadow: 2px 2px 4px #cbb4b4;
 }
@@ -89,7 +92,7 @@ h2.word {
   display: inline-block;
   padding: 5px 10px 5px 10px;
   margin: 10px 10px 10px 10px;
-  font-size: 0.6em;
+  font-size: 0.4em;
   cursor: pointer;
   /* text-align: center; */
   /* text-decoration: none; */
@@ -103,6 +106,7 @@ h2.word {
   background-color: rgb(7, 133, 135);
   color: rgb(255, 255, 255);
   /* font-weight: bold; */
+  font-style: italic;
 }
 
 .title-icon-button-disabled {
@@ -117,4 +121,8 @@ h2.word {
   padding-right: 0.2ex;
   /* Added by Jeff Chen */
   width: 1.5ex;
+}
+
+.title .title-icon-button, .title .title-icon-button-disabled {
+  font-family: 'JetBrains Mono';
 }

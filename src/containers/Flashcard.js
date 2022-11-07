@@ -43,7 +43,7 @@ class Flashcard extends Component {
     };
   }
 
-  handleStarClick(event) {
+  handleStarClick = (event) => {
     let clicked_id = event.currentTarget.id;
     let star_states = this.state.star_states;
     star_states[clicked_id] = !star_states[clicked_id];
@@ -54,7 +54,7 @@ class Flashcard extends Component {
     // this.verbose();
   }
 
-  handleExampleClick(event) {
+  handleExampleClick = (event) => {
     let v = event.currentTarget.parentNode;
     let example_states = this.state.example_states;
     console.log(v);
@@ -66,11 +66,11 @@ class Flashcard extends Component {
     // this.verbose();
   }
 
-  verbose() {
+  verbose = () => {
     console.log(JSON.stringify(this.state, undefined, 4));
   }
 
-  grabMyFav() {
+  grabMyFav = () => {
     this.setState({ only_fav: !this.state.only_fav });
   }
 
@@ -80,14 +80,14 @@ class Flashcard extends Component {
         <Header
           title={"My Flash Card"}
           favOn={this.state.only_fav}
-          onClick={this.grabMyFav.bind(this)}
+          onClick={this.grabMyFav}
         />
         {/* TODO: Ask Momo bind this? */}
         <Content
           vocabularies={vocabularies}
-          handleStarClick={this.handleStarClick.bind(this)}
+          handleStarClick={this.handleStarClick}
           // { /* TODO: no better solution? */ }
-          handleExampleClick={this.handleExampleClick.bind(this)}
+          handleExampleClick={this.handleExampleClick}
           vocabStates={this.state}
         />
       </div>

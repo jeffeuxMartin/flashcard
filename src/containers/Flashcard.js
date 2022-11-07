@@ -76,7 +76,7 @@ class Flashcard extends Component {
     this.setState({ only_fav: !this.state.only_fav });
   };
 
-  render() {
+  render({vocabularies}) {
     return (
       <div>
         <Header

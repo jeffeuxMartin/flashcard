@@ -110,7 +110,7 @@ class Flashcard extends Component {
   };
 
   render(props) {
-    console.log(props);
+    // console.log(props);
     const { vocabularies, isLoading } = this.state;
 
     if (isLoading) {

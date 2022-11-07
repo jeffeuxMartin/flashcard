@@ -51,7 +51,7 @@ class Flashcard extends Component {
       // TODO: better way? of destructing...
       star_states: star_states,
     });
-    this.verbose();
+    // this.verbose();
   }
 
   handleExampleClick(event) {
@@ -63,7 +63,7 @@ class Flashcard extends Component {
       // TODO: better way? of destructing...
       example_states: example_states,
     });
-    this.verbose();
+    // this.verbose();
   }
 
   verbose() {

@@ -126,3 +126,19 @@ h2.word {
 .title .title-icon-button, .title .title-icon-button-disabled {
   font-family: 'JetBrains Mono';
 }
+
+.pos-Noun {
+  color: blue;
+}
+
+.pos-Adjective {
+  color: rgb(62, 154, 0);
+}
+
+.pos-Verb {
+  color: red;
+}
+
+.pos-Adverb {
+  color: purple;
+}

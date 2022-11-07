@@ -40,6 +40,7 @@ export default function Card({
   // };
   console.assert(id !== undefined); // SO sad...
   console.assert(idx !== undefined); // SO sad...
+  const basicPos = ["Noun", "Adjective", "Verb", "Adverb"];
   return (
     <>
       <div className="vocabulary">
@@ -58,7 +59,13 @@ export default function Card({
           />
         </Button>
         <h2 className="word">{word}</h2>
-        <h4>{part_of_speech}</h4>
+        <h4
+          className={`pos${
+            basicPos.includes(part_of_speech) ? "-" + part_of_speech : ""
+          }`}
+        >
+          {part_of_speech}
+        </h4>
         {/* <h5 onClick={outit}>hi</h5> */}
       </div>
       <h3 className="definition">{definition}</h3>

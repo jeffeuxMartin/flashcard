@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/flashcard/static/js/main.141b7232.js",
+    "main.js": "/flashcard/static/js/main.c7b42410.js",
     "index.html": "/flashcard/index.html",
-    "main.141b7232.js.map": "/flashcard/static/js/main.141b7232.js.map"
+    "main.c7b42410.js.map": "/flashcard/static/js/main.c7b42410.js.map"
   },
   "entrypoints": [
-    "static/js/main.141b7232.js"
+    "static/js/main.c7b42410.js"
   ]
 }

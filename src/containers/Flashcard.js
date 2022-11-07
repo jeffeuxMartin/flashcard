@@ -1,5 +1,5 @@
 import { Component } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import Header from "../components/Header";
 import Content from "../components/Content";
 
@@ -40,7 +40,42 @@ class Flashcard extends Component {
       star_states: {},
       example_states: {},
       only_fav: false,
+
+      is_loading: true,
+      vocabularies: [],
     };
+  }
+
+  dataFetcher = (
+    // url = `https://gist.githubusercontent.com/jeffeuxMartin/0f841fe9652f13ce8e79b26101555cd4/raw/vocabularies.json`
+    url = `https://api.github.com/gists/0f841fe9652f13ce8e79b26101555cd4`
+  ) => {
+    fetch(url)
+      .then((resp) => resp.body)
+      .then((stream) =>
+        new Response(stream, {
+          headers: { "Content-Type": "text/json" },
+        }).text()
+      )
+      .then(JSON.parse)
+      .then((json) => json["files"]["vocabularies.json"]["content"])
+      .then(JSON.parse)
+      .catch((err) => {
+        console.error(err);
+        return [];
+      })
+      .then((vocabularies) => {
+        console.log(vocabularies);
+        this.setState({ vocabularies: vocabularies });
+      })
+      .catch((err) => {
+        console.error(err);
+        this.setState({ vocabularies: [] });
+      });
+  };
+
+  componentDidMount() {
+    this.dataFetcher();
   }
 
   handleStarClick = (event) => {
@@ -74,7 +109,14 @@ class Flashcard extends Component {
     this.setState({ only_fav: !this.state.only_fav });
   };
 
-  render({vocabularies}) {
+  render(props) {
+    console.log(props);
+    const { vocabularies, isLoading } = this.state;
+
+    if (isLoading) {
+      return null;
+    }
+
     return (
       <div>
         <Header
@@ -97,8 +139,8 @@ class Flashcard extends Component {
 
 export default Flashcard;
 
-Flashcard.propTypes = {
-  vocabularies: PropTypes.array,
-  // handleStarClick: PropTypes.func,
-  // handleExampleClick: PropTypes.func,
-};
+// Flashcard.propTypes = {
+//   // vocabularies: PropTypes.array.isRequired,
+//   // handleStarClick: PropTypes.func,
+//   // handleExampleClick: PropTypes.func,
+// };
